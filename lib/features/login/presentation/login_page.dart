@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:victor_trevisan_login_app/core/constants/app_colors.dart';
 import 'package:victor_trevisan_login_app/core/constants/app_images.dart';
 import 'package:victor_trevisan_login_app/core/constants/app_routes.dart';
+import 'package:victor_trevisan_login_app/core/generic/app_scroll_and_expanded.dart';
 import 'package:victor_trevisan_login_app/core/utils/navigation_utils.dart';
 import 'package:victor_trevisan_login_app/features/login/presentation/controller/login_page_controller.dart';
 
@@ -29,12 +30,13 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: AppColors.lightGrey,
         body: Center(
           child: Container(
-            constraints: const BoxConstraints.tightFor(width: 600, height: 800),
+            constraints: const BoxConstraints.tightFor(width: 400, height: 800),
             decoration: const BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
-            child: SingleChildScrollView(
+            child: AppScrollAndExpanded(
+              showScrollBar: false,
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Form(
@@ -134,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                           },
                         );
                       }),
-                      const SizedBox(height: 32),
+                      Expanded(child: Container()),
                       Obx(() {
                         return Center(
                           child: InkWell(
