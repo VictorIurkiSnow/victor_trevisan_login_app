@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Image.asset(
                           AppImages.loginImage,
                           filterQuality: FilterQuality.high,
-                          fit: BoxFit.fill,
+                          fit: BoxFit.fill,                          
                         ),
                       ),
                       const SizedBox(height: 32),

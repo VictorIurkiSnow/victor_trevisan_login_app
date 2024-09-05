@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
+import 'package:victor_trevisan_login_app/app_get_it.dart';
 import 'package:victor_trevisan_login_app/core/services/auth_services.dart';
+import 'package:victor_trevisan_login_app/features/home/presentation/common/controller/home_page_controller.dart';
 
 class LoginPageController extends GetxController {
   RxBool isLoading = false.obs;
   RxBool hasError = false.obs;
   RxBool isObscure = true.obs;
   RxString errorMessage = ''.obs;
+
+  HomePageController homePageController =
+      AppGetIt.instance.get<HomePageController>();
 
   Future<bool> login({required String email, required String password}) async {
     isLoading.value = true;
@@ -16,6 +21,7 @@ class LoginPageController extends GetxController {
       if (response.hasError) {
         throw response.error!;
       }
+      homePageController.email.value = email;
       return true;
     } catch (e) {
       debugPrint(e.toString());
@@ -23,7 +29,7 @@ class LoginPageController extends GetxController {
       hasError.value = true;
       return false;
     } finally {
-      isLoading.value = false;     
+      isLoading.value = false;
     }
   }
 

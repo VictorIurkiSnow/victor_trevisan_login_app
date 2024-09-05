@@ -4,8 +4,7 @@ import 'package:victor_trevisan_login_app/core/routes/route_manager.dart';
 class NavigationUtils {
   static final nav = RouteManager.router;
 
-  //WEB
-  static void  goHome() {
+  static void goHome() {
     nav.go(AppRoutes.home.path);
   }
 
@@ -17,20 +16,6 @@ class NavigationUtils {
     nav.go(AppRoutes.community.path);
   }
 
-  //MOBILE
-  static void pushHome() {
-    nav.push(AppRoutes.home.path);
-  }
-
-  static void pushLogin() {
-    nav.push(AppRoutes.login.path);
-  }
-
-  static void pushCommunity() {
-    nav.push(AppRoutes.community.path);
-  }
-
-  //COMMON
   static void goBack() {
     nav.pop();
   }
@@ -38,5 +23,4 @@ class NavigationUtils {
   static void pushReplacement(String path) {
     nav.pushReplacement(path);
   }
-
 }
