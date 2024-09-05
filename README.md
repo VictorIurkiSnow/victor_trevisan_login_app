@@ -4,8 +4,8 @@
 
 Este projeto foi desenvolvido utilizando Flutter.
 
-- Flutter SDK: `>=3.4.4 <4.0.0`
-- Dart SDK compatível
+- Flutter SDK: `3.22.3`
+- Dart SDK: `3.4.4`
 
 ## Dependências
 
@@ -13,7 +13,7 @@ As principais dependências usadas neste projeto são:
 
 - **cupertino_icons**: Ícones padrão do iOS.
 - **get_it**: Injeção de dependências.
-- **get**: Gerenciamento de estado e rotas.
+- **get**: Gerenciamento de estado.
 - **go_router**: Navegação e gerenciamento de rotas.
 - **dio**: Cliente HTTP para requisições de API.
 - **test**: Ferramenta de testes unitários.
@@ -50,8 +50,8 @@ O projeto utiliza os seguintes assets:
         - `community/`: feature 1
         - `login/`: feature 2
         - `home/`: feature 3
-            - `data/`:  Camada responsável pelo acesso aos dados, seja de APIs externas ou fontes locais (bancos de dados, arquivos). Inclui as implementações de fontes de dados e repositórios.
-                - `datasource/`: Contém as fontes de dados, que podem ser APIs remotas (como chamadas HTTP) ou locais (como cache, banco de dados local). Exemplos de arquivos: classes que utilizam Dio para requisições HTTP ou Hive para armazenamento local.
+            - `data/`:  Camada responsável pelo acesso aos dados do core e implementaçōes de funções.
+                - `datasource/`: Conecta ao Adapter para obtenção de dados do core
                 - `repository/`: Implementação dos repositórios que conectam a camada de dados à camada de domínio, definindo como os dados são manipulados e servidos à aplicação.
             - `domain/`: Camada de negócio que contém as regras e entidades da aplicação. Essa camada é independente de qualquer framework ou biblioteca externa, focando nas funcionalidades centrais da feature.
                 - `entity/`: Define as entidades que representam os modelos de dados puros da aplicação. São classes que descrevem objetos de negócio com seus atributos e comportamentos.
@@ -73,3 +73,15 @@ O projeto utiliza os seguintes assets:
 - Navegação entre páginas com `go_router`.
 - Testes unitários com `flutter_test` e `mocktail`.
 - Tratamento de requisições HTTP utilizando `dio`.
+
+
+## Instruções 
+
+- Rodar o app pela primeira vez:
+    simulador: `escolher o simulador adequado`
+    cli:`flutter clean`
+    cli:`flutter pub get`
+    cli: `flutter run`
+
+- Rodar testes unitários:
+    cli: `flutter test`
