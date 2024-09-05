@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:victor_trevisan_login_app/app_get_it.dart';
 import 'package:victor_trevisan_login_app/core/constants/app_colors.dart';
-import 'package:victor_trevisan_login_app/core/generic/app_scroll_and_expanded.dart';
+import 'package:victor_trevisan_login_app/core/widgets/app_scroll_and_expanded.dart';
 import 'package:victor_trevisan_login_app/features/home/presentation/common/controller/home_page_controller.dart';
+import 'package:victor_trevisan_login_app/core/widgets/app_list_tile.dart';
 
 class HomePageWeb extends StatefulWidget {
   const HomePageWeb({super.key});
@@ -43,27 +44,56 @@ class _HomePageWebState extends State<HomePageWeb> {
       } else {
         return Container(
           color: AppColors.lightGrey,
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 64,
-                width: 256,
-                decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(4)),
-                child: ListTile(
-                  leading: ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child:
-                          Image.network(controller.userEntity.value!.avatar)),
-                  title: Text(
-                      '${controller.userEntity.value!.firstName} ${controller.userEntity.value!.lastName}'),
-                  subtitle: Text(controller.userEntity.value!.email),
-                  tileColor: AppColors.white,
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 50,
+              ),
+              Expanded(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          height: 1000,
+                          width: 400,
+                          child: ListView.separated(
+                            separatorBuilder: (context, index) =>
+                                const SizedBox(
+                              height: 4,
+                            ),
+                            itemCount: 20,
+                            itemBuilder: (context, index) => AppListTile(
+                              controller: controller,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          height: 1000,
+                          width: 400,
+                          child: ListView.separated(
+                            separatorBuilder: (context, index) =>
+                                const SizedBox(
+                              height: 4,
+                            ),
+                            itemCount: 20,
+                            itemBuilder: (context, index) => AppListTile(
+                              controller: controller,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
+            ],
           ),
         );
       }

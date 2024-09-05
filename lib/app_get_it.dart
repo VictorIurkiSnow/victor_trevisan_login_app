@@ -6,7 +6,7 @@ import 'package:victor_trevisan_login_app/features/home/domain/repository/home_p
 import 'package:victor_trevisan_login_app/features/home/domain/usecase/fetch_user_data_usecase.dart';
 import 'package:victor_trevisan_login_app/features/home/domain/usecase/fetch_user_id_usecase.dart';
 import 'package:victor_trevisan_login_app/features/home/presentation/common/controller/home_page_controller.dart';
-import 'package:victor_trevisan_login_app/features/login/presentation/controller/login_page_controller.dart';
+import 'package:victor_trevisan_login_app/features/login/presentation/common/controller/login_page_controller.dart';
 
 class AppGetIt {
   static final instance = GetIt.instance;
@@ -55,18 +55,15 @@ class AppGetIt {
         .registerFactory<HomePageDatasource>(() => HomePageDatasourceImpl());
   }
 
- static void resetControllers() {
-  // Remove o controlador de login
-  if (instance.isRegistered<LoginPageController>()) {
-    instance.unregister<LoginPageController>();
-  }
+  static void resetControllers() {
+    if (instance.isRegistered<LoginPageController>()) {
+      instance.unregister<LoginPageController>();
+    }
 
-  // Remove o controlador da home page
-  if (instance.isRegistered<HomePageController>()) {
-    instance.unregister<HomePageController>();
-  }
+    if (instance.isRegistered<HomePageController>()) {
+      instance.unregister<HomePageController>();
+    }
 
-  // Registra novamente os controladores após o reset
-  _setupControllers();
-}
+    _setupControllers();
+  }
 }

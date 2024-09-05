@@ -36,10 +36,12 @@ class _PageBaseState extends State<PageBase> {
                 child: Column(
                   children: [
                     Container(
-                      height: 56, // Altura da AppBar
-                      decoration: const BoxDecoration(
-                          color: AppColors.lightBlue,
-                          borderRadius: BorderRadius.only(
+                      height: 56,
+                      decoration: BoxDecoration(
+                          color: title.value == "Home"
+                              ? AppColors.lightBlue
+                              : AppColors.darkRed,
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(8),
                             bottomRight: Radius.circular(8),
                           )),
@@ -56,9 +58,8 @@ class _PageBaseState extends State<PageBase> {
                           maxLines: 1,
                         ),
                         centerTitle: true,
-                        backgroundColor: Colors
-                            .transparent, // Torna a cor transparente para o Container acima
-                        elevation: 0, // Remove a sombra da AppBar
+                        backgroundColor: Colors.transparent,
+                        elevation: 0,
                         actions: [
                           IconButton(
                             onPressed: () {
