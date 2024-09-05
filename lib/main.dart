@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:victor_trevisan_login_app/app_get_it.dart';
 import 'package:victor_trevisan_login_app/core/routes/route_manager.dart';
 
 void main() {
+  AppGetIt.setUp();
   runApp(const MyApp());
 }
 
@@ -22,4 +24,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
